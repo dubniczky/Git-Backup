@@ -1,8 +1,6 @@
 from pathlib import Path
 from subprocess import run, CompletedProcess
 
-from urllib3 import Retry
-
 def _run(cmd: str) -> CompletedProcess:
     return run(cmd.split(' '))
 
