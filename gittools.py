@@ -13,5 +13,5 @@ def test() -> bool:
 
 
 # Clones a repository into the given folder
-def clone(path: Path, url: str) -> None:
+def clone(path: Path, url: str) -> bool:
     return _run(f'cd {path} && git clone {url}').returncode == 0
