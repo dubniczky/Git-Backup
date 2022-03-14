@@ -2,8 +2,8 @@ from pathlib import Path
 from subprocess import run, CompletedProcess
 
 
-def _run(cmd: str) -> CompletedProcess:
-    return run(cmd.split(' '))
+def _run(cmd: str, cwd='.') -> CompletedProcess:
+    return run(cmd.split(' '), cwd=cwd)
 
 
 # Tests if git is installed on the system
@@ -13,4 +13,4 @@ def test() -> bool:
 
 # Clones a repository into the given folder
 def clone(path: Path, url: str) -> bool:
-    return _run(f'cd ./{path} && git clone {url}').returncode == 0
+    return _run(f'git clone {url}', cwd=path).returncode == 0
