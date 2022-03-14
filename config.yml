@@ -1,0 +1,11 @@
+# Local target directory serving as the root of the repository structure
+target: ./target/
+
+# true: copy all repositories into the target root
+# false: create directory structure using the git server groups
+flatten: false
+
+# List if URL-s to the repositories to save
+repositories:
+  - https://gitlab.com/richardnagy/git-repository-auto-backup
+  - https://gitlab.com/richardnagy/git-repository-auto-backup-error-doesnt-exist
