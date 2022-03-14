@@ -8,5 +8,5 @@ def get_git_folders(url: str) -> tuple[list[str], str]:
     return ( path[:-1], path[-1] )
 
 # Creates the directories in the given path if they do not exist
-def make_dir_tree(path: str | Path):
-    makedirs(f'./{path}', exist_ok=True)
+def make_dir_tree(path: Path | list[str]):
+    makedirs(Path('.') / Path(path), exist_ok=True)
