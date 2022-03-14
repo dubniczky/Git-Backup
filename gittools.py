@@ -14,3 +14,7 @@ def test() -> bool:
 # Clones a repository into the given folder
 def clone(path: Path, url: str) -> bool:
     return _run(f'git clone {url}', cwd=path).returncode == 0
+
+# Pulls changes in given repository
+def clone(path: Path, repo: str, url: str) -> bool:
+    return _run(f'git pull', cwd=path / repo).returncode == 0
