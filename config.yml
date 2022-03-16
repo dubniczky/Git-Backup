@@ -5,9 +5,9 @@ target: ./target/
 # false: create directory structure using the git server groups
 flatten: false
 
-# true: Runs git clone with --mirror flag on the repositry, cloning all branches tags and notes
-# false: Only runs git clone --recursive on the repository, copying the main branch
-mirror: true
+# clone: Runs git clone with --mirror flag on the repositry, cloning all branches tags and notes
+# mirror: Only runs git clone --recursive on the repository, copying the main branch
+method: mirror
 
 # List if URL-s to the repositories to save
 repositories:
