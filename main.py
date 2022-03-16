@@ -1,9 +1,11 @@
+import math
 import gittools as git
+from pathlib import Path
 from pathtools import get_git_folders, make_dir_tree
 from yaml import safe_load
 
 CONFIG_PATH = 'config.yml'
-TASK_HEADER_PADDING_SIZE = 15
+TASK_HEADER_PADDING_SIZE = 20
 TASK_HEADER_PADDING_CHAR = '='
 
 def load_config() -> dict | None:
@@ -12,6 +14,19 @@ def load_config() -> dict | None:
             return safe_load(f.read())
     except:
         return None
+    
+
+def color_text(text, ok=True):
+    res = []
+    if ok:
+        res += ['\033[92m'] # Green
+    else:
+        res += ['\033[91m'] # Red
+    
+    res += [text]
+    res += ['\033[0m'] # Reset color
+    return ''.join(res)
+    
     
     
 def print_header(text: str) -> None:
@@ -33,15 +48,47 @@ def main() -> int:
         return 2
     
     reps = conf['repositories']
+    target = conf['target']
     count = len(reps)
+    states = []
+    success_count = 0
     
     print(f'Cloning {count} repositories...')
     
-    # Start cloning
+    # Start backups
     for i, url in enumerate(reps):
-        print_header(f'Cloning {i+1}/{count}')
+        # Prepare
         folders, repo = get_git_folders(url)
-        make_dir_tree(Path(folders))
+        print_header(f'Cloning {i+1}/{count} [{repo}]')
+        path = Path(target)
+        
+        if not conf['flatten']:
+            path /= Path('/'.join(folders))
+            make_dir_tree(path)
+            
+        # Run
+        match conf['method']:
+            case 'clone':
+                success = git.mirror(path, url)
+            case 'mirror':
+                success = git.mirror(path, url)
+            case _:
+                print('Invalid method defined in configuration.')
+                return 3
+        
+        # Save results
+        states += [ (repo, success) ]
+        if (success):
+            success_count += 1
+            
+    # Display results
+    for i,repo in enumerate(states):
+        if repo[1]:
+            state = color_text(' OK ', ok=True)
+        else:
+            state = color_text('FAIL', ok=False)
+        print(f'[{state}] {repo[0]}')
+    print(f'Success: {success_count} / {count}')
         
         
 
