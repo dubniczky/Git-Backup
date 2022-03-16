@@ -13,7 +13,12 @@ def test() -> bool:
 
 # Clones a repository into the given folder
 def clone(path: Path, url: str) -> bool:
-    return _run(f'git clone {url}', cwd=path).returncode == 0
+    return _run(f'git clone --recursive {url}', cwd=path).returncode == 0
+
+
+# Mirrors a repository into the given folder
+def mirror(path: Path, url: str) -> bool:
+    return _run(f'git clone --mirror {url}', cwd=path).returncode == 0
 
 
 # Pulls changes in given repository
