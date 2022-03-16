@@ -12,4 +12,11 @@ mirror: true
 # List if URL-s to the repositories to save
 repositories:
   - https://gitlab.com/richardnagy/git-repository-auto-backup
-  - https://gitlab.com/richardnagy/git-repository-auto-backup-error-doesnt-exist
+  - https://gitlab.com/richardnagy/webprojects/3d-ray-casting
+  - https://gitlab.com/richardnagy/webprojects/webgl-fractals
+  - https://gitlab.com/richardnagy/webprojects/word-salad
+  - https://gitlab.com/richardnagy/webprojects/trigonometric-convex-hull
+  - https://gitlab.com/richardnagy/security/spy-proxy
+  - https://gitlab.com/richardnagy/security/passphrase-password-vault
+  - https://gitlab.com/richardnagy/security/browser-fingerprint
+  - https://gitlab.com/richardnagy/security/passhash
