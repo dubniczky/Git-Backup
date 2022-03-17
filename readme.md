@@ -28,3 +28,18 @@ Run script from terminal
 cd source
 python main.py
 ```
+
+### Using virtual environment
+
+```bash
+# Load
+source ./venv.sh
+venv load
+
+# Run
+cd source
+python main.py
+
+#Exit
+venv exit
+```
