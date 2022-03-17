@@ -11,7 +11,10 @@ method: mirror
 
 # List if URL-s to the repositories to save
 repositories:
+  - https://gitlab.com/richardnagy/container-environments/gradle-java-testing-docker-environment
+  - https://gitlab.com/richardnagy/research/refactoring-legacy-publication
   - https://gitlab.com/richardnagy/git-repository-auto-backup
+  - https://gitlab.com/richardnagy/webprojects/webrtc-data-channel-between-client-and-server
   - https://gitlab.com/richardnagy/webprojects/3d-ray-casting
   - https://gitlab.com/richardnagy/webprojects/webgl-fractals
   - https://gitlab.com/richardnagy/webprojects/word-salad
@@ -20,3 +23,5 @@ repositories:
   - https://gitlab.com/richardnagy/security/passphrase-password-vault
   - https://gitlab.com/richardnagy/security/browser-fingerprint
   - https://gitlab.com/richardnagy/security/passhash
+  - https://gitlab.com/richardnagy/git-repository-auto-backup
+  - https://gitlab.com/richardnagy/shopify-bulk-product-uploader
