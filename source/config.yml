@@ -1,15 +1,16 @@
 # Local target directory serving as the root of the repository structure
+# (default) ./target/
 target: ./target/
 
 # true: copy all repositories into the target root
-# false: create directory structure using the git server groups
+# false: (default) create directory structure using the git server subgroups
 flatten: false
 
-# clone: Runs git clone with --mirror flag on the repositry, cloning all branches tags and notes
-# mirror: Only runs git clone --recursive on the repository, copying the main branch
+# mirror: (default) Runs git clone with --mirror flag on the repositry, cloning all branches tags, and notes from origin
+# clone: Only runs git clone --recursive on the repository, copying the main branch from origin
 method: mirror
 
-# List if URL-s to the repositories to save
+# List of URL-s to the repositories
 repositories:
   - https://gitlab.com/richardnagy/container-environments/gradle-java-testing-docker-environment
   - https://gitlab.com/richardnagy/research/refactoring-legacy-publication
