@@ -31,15 +31,22 @@ python main.py
 
 ### Using virtual environment
 
+Load
+
 ```bash
-# Load
 source ./venv.sh
 venv load
+```
 
-# Run
+Run
+
+```bash
 cd source
 python main.py
+```
 
-#Exit
+Exit
+
+```bash
 venv exit
 ```
