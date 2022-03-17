@@ -1,4 +1,3 @@
-import math
 import gittools as git
 from pathlib import Path
 from pathtools import get_git_folders, make_dir_tree
