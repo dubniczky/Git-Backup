@@ -1,7 +1,8 @@
-import gittools as git
 from pathlib import Path
-from pathtools import get_git_folders, make_dir_tree
 from yaml import safe_load
+
+import .utils.gitutils as git
+from .utils.pathutils import get_git_folders, make_dir_tree
 
 CONFIG_PATH = 'config.yml'
 TASK_HEADER_PADDING_SIZE = 20
