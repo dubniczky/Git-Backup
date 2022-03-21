@@ -8,21 +8,21 @@ venv.load()
 
     # Create venv
     echo "[1/5] Creating virtual environment..."
-    python -m venv $VENV_NAME;
+    python -m venv $VENV_NAME
 
     # Activate environment
     echo "[2/5] Activating environment..."
-    source $VENV_NAME/bin/activate;
+    source $VENV_NAME/bin/activate
 
     # Install packages
     echo "[3/5] Installing packages..."
     echo "${pwd}/$DEPS_NAME"
-    pip install -r $DEPS_NAME;
+    pip install -r $DEPS_NAME
 
     # Save used package versions
     echo "[4/5] Creating lock file..."
     echo "${pwd}/$LOCK_NAME"
-    pip freeze > $LOCK_NAME;
+    pip freeze > $LOCK_NAME
 
     echo "[5/5] Virtual environment ready."
     echo "${pwd}/$VENV_NAME"
@@ -37,6 +37,6 @@ venv()
     then
         deactivate;
     else
-        echo "Unknown command. Use load or exit";
+        echo "Unknown command. Use load or exit"
     fi
 }
