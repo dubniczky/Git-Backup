@@ -3,10 +3,9 @@ from yaml import safe_load
 
 import .utils.gitutils as git
 from .utils.pathutils import get_git_folders, make_dir_tree
+from .utils.termutils import color_state, print_header
 
 CONFIG_PATH = 'config.yml'
-TASK_HEADER_PADDING_SIZE = 20
-TASK_HEADER_PADDING_CHAR = '='
 
 def load_config() -> dict | None:
     try:
@@ -14,24 +13,6 @@ def load_config() -> dict | None:
             return safe_load(f.read())
     except:
         return None
-    
-
-def color_text(text, ok=True):
-    res = []
-    if ok:
-        res += ['\033[92m'] # Green
-    else:
-        res += ['\033[91m'] # Red
-    
-    res += [text]
-    res += ['\033[0m'] # Reset color
-    return ''.join(res)
-    
-    
-    
-def print_header(text: str) -> None:
-    pad = TASK_HEADER_PADDING_CHAR * TASK_HEADER_PADDING_SIZE
-    print(f'{pad} {text} {pad}')
 
 
 def main() -> int:
@@ -84,9 +65,9 @@ def main() -> int:
     # Display results
     for i,repo in enumerate(states):
         if repo[1]:
-            state = color_text(' OK ', ok=True)
+            state = state_text(' OK ', ok=True)
         else:
-            state = color_text('FAIL', ok=False)
+            state = state_text('FAIL', ok=False)
         print(f'[{state}] {repo[0]}')
     print(f'Success: {success_count} / {count}')
         
