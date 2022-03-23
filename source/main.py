@@ -1,7 +1,7 @@
 from pathlib import Path
 from yaml import safe_load
 
-import .utils.gitutils as git
+from . import gitutils as git
 from .utils.pathutils import get_git_folders, make_dir_tree
 from .utils.termutils import color_state, print_header
 
@@ -65,9 +65,9 @@ def main() -> int:
     # Display results
     for i,repo in enumerate(states):
         if repo[1]:
-            state = state_text(' OK ', ok=True)
+            state = color_state(' OK ', ok=True)
         else:
-            state = state_text('FAIL', ok=False)
+            state = color_state('FAIL', ok=False)
         print(f'[{state}] {repo[0]}')
     print(f'Success: {success_count} / {count}')
         
