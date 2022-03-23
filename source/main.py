@@ -1,9 +1,9 @@
 from pathlib import Path
 from yaml import safe_load
 
-from . import gitutils as git
-from .utils.pathutils import get_git_folders, make_dir_tree
-from .utils.termutils import color_state, print_header
+from utils import gitutils as git
+from utils.pathutils import get_git_folders, make_dir_tree
+from utils.termutils import color_state, print_header
 
 CONFIG_PATH = 'config.yml'
 
