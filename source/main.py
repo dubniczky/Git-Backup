@@ -30,6 +30,9 @@ def main() -> int:
     
     reps = conf['repositories']
     target = conf['target']
+    flatten = conf['flatten']
+    method = conf['method']
+    
     count = len(reps)
     states = []
     success_count = 0
@@ -43,19 +46,18 @@ def main() -> int:
         print_header(f'Cloning {i+1}/{count} [{repo}]')
         path = Path(target)
         
-        if not conf['flatten']:
+        if not flatten:
             path /= Path('/'.join(folders))
             make_dir_tree(path)
             
         # Run
-        match conf['method']:
-            case 'clone':
-                success = git.mirror(path, url)
-            case 'mirror':
-                success = git.mirror(path, url)
-            case _:
-                print('Invalid method defined in configuration.')
-                return 3
+        if method == 'clone':
+            success = git.mirror(path, url)
+        elif method == 'mirror':
+            success = git.mirror(path, url)
+        else:
+            print('Invalid method defined in configuration.')
+            return 3
         
         # Save results
         states += [ (repo, success) ]
