@@ -11,5 +11,5 @@ def color_state(text, ok=True):
 
 
 def print_header(text: str, pad_size=20, pad_char='=') -> None:
-    pad = TASK_HEADER_PADDING_CHAR * TASK_HEADER_PADDING_SIZE
+    pad = pad_char * pad_size
     print(f'{pad} {text} {pad}')
