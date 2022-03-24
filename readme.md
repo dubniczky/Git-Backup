@@ -20,13 +20,12 @@ pip install -r ./requirements.txt
 
 ### Run script
 
-> First, edit edit: `/source/config.yml`
+> First, edit edit: `/config.yml`
 
 Run script from terminal
 
 ```bash
-cd source
-python main.py
+python .
 ```
 
 ### Using virtual environment
@@ -41,8 +40,7 @@ venv load
 Run
 
 ```bash
-cd source
-python main.py
+python .
 ```
 
 Exit
