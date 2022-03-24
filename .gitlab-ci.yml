@@ -1,0 +1,14 @@
+run_pytests:
+  stage: test
+  image: python:latest
+  script:
+    # Install all necessary libraries first
+    - python -m pip install -r requirements.txt
+
+    # Run unit tests
+    - python -m pytest --junitxml=testlog.xml
+  artifacts:
+      paths:
+          - testlog.xml
+      reports:
+          junit: testlog.xml
