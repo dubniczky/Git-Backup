@@ -1,11 +1,27 @@
-run_pytests:
-  stage: test
-  image: python:latest
-  script:
-    # Install all necessary libraries first
-    - python -m pip install -r requirements.txt
+stages:
+  - lint
+  - test
 
-    # Run unit tests
+# Linting
+
+lint-pylint:
+  stage: lint
+  image: python:3.10-slim
+  script:
+    # Install packages
+    - python -m pip install -r requirements.txt
+    # Run pylint
+    - python -m pylint .
+
+# Testing
+
+test-pytest:
+  stage: test
+  image: python:3.10-slim
+  script:
+    # Install packages
+    - python -m pip install -r requirements.txt
+    # Run pytest
     - python -m pytest --junitxml=testlog.xml
   artifacts:
       paths:
