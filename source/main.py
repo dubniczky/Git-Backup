@@ -15,7 +15,7 @@ def load_config() -> dict | None:
         return None
 
 
-def main() -> int:
+def backup() -> int:
     # Load config
     print('Loading config...')
     conf = load_config()
@@ -73,8 +73,6 @@ def main() -> int:
         print(f'[{state}] {repo[0]}')
     print(f'Success: {success_count} / {count}')
         
-        
-
 
 if __name__ == '__main__':
-    exit(main())
+    exit(backup())
