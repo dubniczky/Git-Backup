@@ -48,3 +48,9 @@ Exit
 ```bash
 venv exit
 ```
+
+### Run tests
+
+```bash
+python -m pytest
+```
