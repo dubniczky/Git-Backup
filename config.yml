@@ -26,3 +26,4 @@ repositories:
   - https://gitlab.com/richardnagy/security/passhash
   - https://gitlab.com/richardnagy/git-repository-auto-backup
   - https://gitlab.com/richardnagy/shopify-bulk-product-uploader
+  - https://gitlab.com/richardnagy/python-venv-terminal-extension
