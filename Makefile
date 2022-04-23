@@ -1,12 +1,17 @@
+# Run even if up to date
 .PHONY: clean install run test all lint test auto cron
 
+
+# Variables
 PYTHON=python3
 PIP=pip
 REQS_FILE=requirements.txt
 TEST_LIB=pytest
 LINT_LIB=pylint
 
-all: clean install run
+
+# Default command
+default: clean install run
 
 # Clean up pycache
 clean:
