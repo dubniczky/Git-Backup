@@ -4,53 +4,49 @@ Automatically clones and backs up all repositories specified in the given config
 
 ## Usage
 
-### Installing dependencies
+Using this project requires python3 and pip to be installed.
 
-Run pre-written bash script
+Automake GNU is recommended, otherwise enter the commands detailed in `Makefile` manually.
+
+### Quick Start
 
 ```bash
-bash ./install.sh
+make
 ```
 
-Install manually using pip
+### Manual Installation
+
+Install dependencies
 
 ```bash
-pip install -r ./requirements.txt
+make install
 ```
 
 ### Run script
 
-> First, edit edit: `/config.yml`
+> First, edit: `/config.yml`
 
 Run script from terminal
 
 ```bash
-python .
-```
-
-### Using virtual environment
-
-Load
-
-```bash
-source ./venv.sh
-venv load
-```
-
-Run
-
-```bash
-python .
-```
-
-Exit
-
-```bash
-venv exit
+make run
 ```
 
 ### Run tests
 
+Run python linter
+
 ```bash
-python -m pytest
+make lint
+```
+
+Run python tester
+
+```bash
+make test
+```
+
+Run lint and test
+```bash
+make auto
 ```
