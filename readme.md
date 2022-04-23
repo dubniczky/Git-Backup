@@ -50,3 +50,21 @@ Run lint and test
 ```bash
 make auto
 ```
+
+### Misc Commands
+
+Clean up pycache
+
+```bash
+make clean
+```
+
+Install app as a cronjob
+
+> Edit `cron.sh` to specify run frequency and targets.
+
+> Move the project to it's final location before installing the cronjob.
+
+```bash
+make cron
+```
